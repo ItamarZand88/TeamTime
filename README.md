@@ -56,8 +56,8 @@ Before starting, ensure you have installed the following tools:
 Clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/ItamarZand88/Shifty.git
-cd Shifty
+git clone https://github.com/ItamarZand88/TeamTime.git
+cd TeamTime
 ```
 
 ### Installing Dependencies

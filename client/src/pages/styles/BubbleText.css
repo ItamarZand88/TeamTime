@@ -1,0 +1,40 @@
+.hoverText {
+  display: inline-block;
+  margin-right: 0.2em; 
+}
+
+.hoverLetter {
+  display: inline-block;
+  transition: 0.4s font-weight ease, 0.4s color ease, 0.4s transform ease,
+    0.4s text-shadow ease;
+  color: #364152; 
+}
+
+.hoverLetter:hover {
+  font-weight: 900;
+  color: #647896;
+  transform: scale(1.1);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.hoverLetter:hover + .hoverLetter {
+  font-weight: 500;
+  color: #556680; 
+  transform: scale(1.05);
+}
+
+.hoverLetter:hover + .hoverLetter + .hoverLetter {
+  transform: scale(1.02);
+}
+
+
+.hoverLetter:has(+ .hoverLetter:hover) {
+  font-weight: 500;
+  color: #556680; 
+  transform: scale(1.05);
+}
+
+.hoverLetter:has(+ .hoverLetter + .hoverLetter:hover) {
+  transform: scale(1.02);
+}

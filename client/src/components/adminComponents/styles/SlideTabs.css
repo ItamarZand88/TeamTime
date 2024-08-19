@@ -1,0 +1,39 @@
+.slide-tabs {
+  position: relative;
+  display: flex;
+  width: fit-content;
+  margin: auto;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 20px;
+  padding: 2px; 
+  list-style: none;
+}
+
+.tab {
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
+  padding: 6px 20px;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: black;
+  transition: color 0.3s ease;
+  border-radius: 16px;
+  margin: 2px; 
+}
+
+.tab.active {
+  color: rgb(0, 119, 185);
+}
+
+.cursor {
+  position: absolute;
+  z-index: 0;
+  top: 2px;
+  bottom: 2px;
+  background-color: rgb(204, 229, 255);
+  border-radius: 16px;
+  transition: left 0.3s ease, width 0.3s ease;
+  border: 2px solid rgb(0, 119, 185); 
+}

@@ -1,0 +1,68 @@
+/* ScheduleTable.css */
+.schedule-container {
+  overflow-x: auto; /* Enable horizontal scrolling if needed */
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: separate; /* Needed for spacing cells */
+  border-spacing: 0; /* Removes default space between cells */
+  background-color: #fff; /* Ensures the table background is white */
+  margin: 1rem 0; /* Gives some margin around the table */
+  border: 2px solid black; /* Black border for the table */
+  border-radius: 8px; /* Rounded corners for the table */
+  overflow: hidden; /* Ensures the borders contain the child elements */
+}
+
+.schedule-table th,
+.schedule-table td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  position: relative; /* Required for the pseudo-element to work */
+  background-color: #fff; /* White background for cells */
+}
+
+.schedule-table th::after,
+.schedule-table td::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 100%; /* Start just after the element */
+  width: 100%;
+  height: 4px; /* Height of the black layer effect */
+  background-color: #000; /* Solid black layer for 3D effect */
+  z-index: -1;
+}
+
+.schedule-table th {
+  background-color: #e8e8e8;
+}
+
+.schedule-table th span.day-name {
+  display: block;
+  font-size: 0.8rem;
+}
+
+.schedule-table th span.date {
+  display: block;
+  font-size: 0.7rem;
+  color: #999;
+}
+
+.schedule-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.schedule-table tbody tr:hover {
+  background-color: #f0f0f0;
+}
+
+.cell.blocked {
+  background-color: #ffcccc;
+}
+
+.cell.available {
+  background-color: #ccffcc;
+}

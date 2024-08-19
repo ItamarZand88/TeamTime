@@ -1,0 +1,174 @@
+/* Import the font */
+@import url("https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap");
+
+.background,
+.teamtime {
+  position: relative;
+  display: flex;
+}
+
+.teamtime {
+  text-decoration: none;
+  width: 362px;
+  letter-spacing: -6.4px;
+  line-height: 120px;
+  font-weight: 700;
+  color: inherit;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  z-index: 1;
+  position: relative; /* Fix to top-left corner */
+}
+
+.background {
+  width: 100%;
+  height: 100%; /* Ensure full height */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  padding: 16px;
+  box-sizing: border-box;
+  gap: 20px; /* Reduced gap for better layout */
+  text-align: center;
+  font-size: 80px;
+}
+
+/* FrameComponent Styles */
+.in-one-click,
+.set-up-your {
+  margin: 0;
+  margin-bottom: 16px;
+}
+
+.heading-2 {
+  margin: 0;
+  font-size: inherit;
+  line-height: 72px;
+  font-weight: 400;
+  font-family: "Poetsen One", sans-serif; /* Apply the font */
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.button-container {
+  cursor: pointer;
+  border: 4px solid white;
+  padding: 16px 56px;
+  background-color: rgba(54, 54, 54, 0.1);
+  border-radius: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: "Poetsen One", sans-serif;
+  font-size: 25px;
+  margin-top: 32px;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.button-container:hover {
+  background-color: #ffffff30; /* Light white background on hover */
+  transform: scale(1.05); /* Slightly increase size on hover */
+}
+
+.button-container-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+}
+
+.background-inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  box-sizing: border-box;
+  max-width: 100%;
+  text-align: center;
+}
+/* Animation CSS */
+.text-focus-in {
+  -webkit-animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+.button-focus-in {
+  -webkit-animation: button-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+    both;
+  animation: button-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+@-webkit-keyframes button-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes button-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+.logo-title-wrapper {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+
+.logo-title-wrapper svg {
+  margin-right: 30px; /* Adjust the space between logo and text */
+}
+
+.teamtime {
+  text-decoration: none;
+  letter-spacing: -6.4px;
+  line-height: 120px;
+  font-weight: 700;
+  color: inherit;
+  font-size: 80px; /* Adjust as needed */
+}

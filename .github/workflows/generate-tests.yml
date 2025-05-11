@@ -40,7 +40,7 @@ jobs:
       - name: Generate tests and comment
         working-directory: pr-test-generator
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TOKEN: ${{ secrets.TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
           # GITHUB_EVENT_PATH is automatically set by GitHub Actions

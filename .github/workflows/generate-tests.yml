@@ -37,18 +37,18 @@ jobs:
         working-directory: pr-test-generator
         run: npm run build
 
-      - name: Get PR number
-        id: pr
-        run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "number=${{ github.event.inputs.pr_number }}" >> $GITHUB_OUTPUT
-          else
-            echo "number=${{ github.event.pull_request.number }}" >> $GITHUB_OUTPUT
-          fi
-
       - name: Generate tests and comment
         working-directory: pr-test-generator
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: node dist/index.js ${{ steps.pr.outputs.number }} ${{ github.repository_owner }} ${{ github.event.repository.name }}
+        run: |
+          # GITHUB_EVENT_PATH is automatically set by GitHub Actions
+          # The script will now detect it and use PR info from there
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            # For manual workflow trigger, we need to pass PR number
+            node dist/index.js ${{ github.event.inputs.pr_number }}
+          else
+            # For automatic trigger on PR, use event data from GITHUB_EVENT_PATH
+            node dist/index.js
+          fi

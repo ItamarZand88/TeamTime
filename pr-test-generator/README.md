@@ -28,7 +28,7 @@ npm run build
 4. צור קובץ `.env` עם המפתחות הנדרשים (התבסס על `.env.example`):
 
 ```env
-GITHUB_TOKEN=your_github_token_here
+TOKEN=your_github_token_here
 OPENAI_API_KEY=your_openai_api_key_here
 DEFAULT_REPO_OWNER=ItamarZand88
 DEFAULT_REPO_NAME=TeamTime
@@ -68,5 +68,5 @@ npm start 123 ItamarZand88 TeamTime
 2. עבור להגדרות (Settings)
 3. בחר ב-Secrets > Actions
 4. הוסף את הסודות הבאים:
-   - `GITHUB_TOKEN` (נוצר אוטומטית על ידי GitHub Actions)
+   - `TOKEN` (טוקן GitHub עם הרשאות repo)
    - `OPENAI_API_KEY` (מפתח ה-API של OpenAI)

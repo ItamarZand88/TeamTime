@@ -1,0 +1,54 @@
+name: Generate Unit Tests
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    paths:
+      - "**/*.js"
+      - "**/*.ts"
+      - "**/*.jsx"
+      - "**/*.tsx"
+      - "**/*.py"
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: "PR number to generate tests for"
+        required: true
+
+jobs:
+  generate-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+          cache: "npm"
+          cache-dependency-path: pr-test-generator/package.json
+
+      - name: Install dependencies
+        working-directory: pr-test-generator
+        run: npm ci
+
+      - name: Build project
+        working-directory: pr-test-generator
+        run: npm run build
+
+      - name: Get PR number
+        id: pr
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "number=${{ github.event.inputs.pr_number }}" >> $GITHUB_OUTPUT
+          else
+            echo "number=${{ github.event.pull_request.number }}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Generate tests and comment
+        working-directory: pr-test-generator
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: node dist/index.js ${{ steps.pr.outputs.number }} ${{ github.repository_owner }} ${{ github.event.repository.name }}

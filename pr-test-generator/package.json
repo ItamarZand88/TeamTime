@@ -1,0 +1,29 @@
+{
+  "name": "pr-test-generator",
+  "version": "1.0.0",
+  "description": "AI-powered unit test generator for GitHub Pull Requests",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js"
+  },
+  "keywords": [
+    "github",
+    "pull-request",
+    "unit-tests",
+    "ai",
+    "openai"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "octokit": "^3.1.0",
+    "openai": "^4.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.6.0",
+    "typescript": "^5.2.2"
+  }
+}

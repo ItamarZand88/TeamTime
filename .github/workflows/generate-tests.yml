@@ -31,7 +31,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: pr-test-generator
-        run: npm ci
+        run: npm install
 
       - name: Build project
         working-directory: pr-test-generator
